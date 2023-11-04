@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myapp-ingress
+  annotations: 
+    kubernetes.io/ingress.class: "nginx"
+  spec:
+
+    rules:
+    - host: myapp.example.com
+      http:
+        paths:
+        - path: /crate-demo
+          pathType: Prefix
+          backend:
+            service:
+              name: myapp-service
+              port:
+              number: 80
+    tls:
+    - hosts:
+      - myapp.example.com
+      secretName: myapp-tls-secret

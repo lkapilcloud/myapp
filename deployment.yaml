@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: myappapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: myapp-container
+        image: lkapilcloud/myapp:v2
+        ports:
+        - containerPort: 3000
