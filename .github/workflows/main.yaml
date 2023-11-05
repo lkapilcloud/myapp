@@ -28,6 +28,7 @@ jobs:
           aws_region: $AWS_REGION
           cluster_name: $EKS_CLUSTER_NAME
           
+          
       - name: Build Docker image
         run: docker build -t lkapilcloud/myapp:latest .
 
