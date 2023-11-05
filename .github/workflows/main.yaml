@@ -38,8 +38,7 @@ jobs:
 
     - name: Install Cert-Manager usin helm
       run: |
-        kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.2/cert-manager.yaml
-
+        helm install cmctl
     - name: Install nginx-ingress
       run: |
         kubectl create namespace nginx-ingress
